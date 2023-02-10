@@ -3,7 +3,7 @@
 These files are for transferring data from the DigiPal project to a custom Heurist database, as part of the research seminar 'Humanités numériques et computationnelles appliquées à l'étude de l'écrit ancien' at the École Pratique des Hautes Études, Université PSL.
 
 The data comes from https://www.digipal.eu and is harvested via the Web API.
-It is then processed, reformatted to match the different model, and transformed into Heurist Markup Language for import into a Heurist database.
+It is then processed, reformatted to match the different model, and transformed into Heurist Markup Language for import into [a Heurist database](https://heurist.huma-num.fr/heurist/?db=pstok_sem&website&id=1501).
 
 The files are of four broad types:
  
