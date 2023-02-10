@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- http://digipal.eu/digipal/api/place/?@format=xml&@select=name,county,eastings,northings,region&@limit=500 -->
+<response>
+    <count>307</count>
+    <errors/>
+    <results>
+        <item>
+            <name>Cerne Abbas</name>
+            <region__id>2</region__id>
+            <eastings>3665.0</eastings>
+            <region>South West</region>
+            <id>25</id>
+            <northings>1015.0</northings>
+        </item>
+    </results>
+    <success>1</success>
+</response>
