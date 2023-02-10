@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hml xmlns="http://heuristnetwork.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://heuristnetwork.org/documentation_and_templates/scheme_hml.xsd">
+<!-- for preparing an XML file 
+            with Heurist schema which can be imported into a Heurist database.
+            
+
+            The file must indicate a source database in <database id=nnnn>. 
+            This is added automatically when HML or this template is exported 
+            from a registered Heurist database (it is set to 0 if the 
+            database is not registered). 
+            
+
+            In the case of data from a non-Heurist source, the file should 
+            indicate a database which contains definitions for all the 
+            record types and fields to be imported. This can either be 
+            the database from which this template is exported or zero or the 
+            target database if all the necessary record types and fields 
+            exist in the target (either by being imported into it or through
+            cloning from a suitable source). If definitions are missing Heurist 
+            will update the target database structure from the indicated source
+            (if specified). If required definitions cannot be obtained, it will 
+            report an error indicating the missing definitions.
+            
+
+            Values to be replaced are indicated with ALLCAPS, such as 
+            WKT (WellKnownText), NUMERIC, TERM, DATE etc.
+            
+
+            RECORD_REFERENCE may be replaced with a numeric or alphanumeric 
+            reference to another record, indicated by the <ID> tag. 
+            Note that this reference will be replaced with an automatically 
+            generated numeric Heurist record ID (H-ID), which will be different 
+            from the reference supplied. The reference supplied will be recorded
+            in a field Original ID.
+            
+
+            If you wish to specify existing Heurist records in the target 
+            database as the target (value) of a Record Pointer field, specify 
+            their Heurist record ID (H-ID) in the form H-ID-nnnn, where nnnn
+            is the H-ID of the target record in the target database. Specifying 
+            non-existent record IDs will throw an error. The record type of 
+            target records are not checked on import; pointers to records of
+            the wrong type can be found later with Verify > Verify integrity. 
+            
+
+            In the current version of HML import, you cannot import additional
+            data into an existing record (this will be developed later according 
+            to demand - in the meantime please use CSV import to update records).
+            If you use an H-ID-nnnn format specification in the <id> tag of 
+            a record, it will be regarded as an unknown alphanumeric identifier 
+            and will simply create a new record with a new H-ID.
+            
+
+            <url>URL</url> This record level tag specifies a special URL 
+            attached directly to the record which is used to hyperlink 
+            record lists and for which checking can be automated. 
+            Primarily used for internet bookmarks.  
+            
+
+            Specify date field values in ISO format (yyyy or yyyy-mm or yyyy-mm-dd)
+            
+
+            termID= specifies any of the following, which are evaluated 
+            in order: local ID, concept code, label or standard code.   
+            If no match is found, the value will be added as a new term 
+            
+
+            Relationship markers: these are indicated by SEE NOTES AT START in 
+            the value. Relationship markers are special fields as they contain no data; 
+            they are simply a marker in the data structure indicating the display 
+            of relationship records which satisfy particular criteria (relationship type 
+            and target entity type). They also trigger the creation of relationships 
+            with particular parameters during data entry.
+            
+
+            Relationships should therefore be imported by importing as records of 
+            type RELATIONSHIP. They will appear in the marker fields when the data is 
+            viewed. Leave at least one copy of each relationship marker field in the 
+            file as this will trigger download of the field definition if it is not in 
+            the target database. Only one copy of each relationship marker is needed to 
+            trigger the download of the definition, duplicates can be deleted if there 
+            is a need to limit file size.
+            
+
+            The XML file may (optionally) specify a Heurist database ID 
+            with <database id=??>. If a database ID is specified, synchronisation 
+            of definitions from that database will be performed before the data 
+            are imported. Since imported files will normally use a template for 
+            record types and fields exported from the target database, this is 
+            only useful for synchronising vocabularies and terms.
+        -->
+<database id="0">pstok_sem</database>
+<records>
+<!--
+Place
+-->
+<record>
+<!-- Specify the entity identifier in the source database (numeric or alphanumeric) if entity may be the target of a record pointer field, including the target record pointer of a  relationship record.-->
+<id>RECORD-IDENTIFIER</id>
+<!-- type specifies the record (entity) type of the record -->
+<type conceptID="3-1009">Place</type>
+<url>URL</url>
+<notes/>
+<detail conceptID="2-1" name="Primary place name">TEXT</detail>
+<detail conceptID="2-2" name="City, town or suburb">TEXT</detail>
+<detail conceptID="2-3" name="Short description">MEMO_TEXT</detail>
+<detail conceptID="2-4" name="Extended description">MEMO_TEXT</detail>
+<detail conceptID="2-9" name="Date of name record">DATE</detail>
+<detail conceptID="2-10" name="Start date for named place">DATE</detail>
+<detail conceptID="2-11" name="End date for named place">DATE</detail>
+<detail conceptID="2-26" name="Country" termID="VALUE"/>
+<detail conceptID="2-28" name="Location (mappable)">
+<geo>
+<wkt>WKT_VALUE</wkt>
+</geo>
+</detail>
+<detail conceptID="2-38" name="Related file(s) or URLs">
+<file>
+<url>FILE_OR_URL</url>
+<mimeType>TEXT</mimeType>
+<description>MEMO_TEXT</description>
+<origName>TEXT</origName>
+</file>
+</detail>
+<detail conceptID="2-39" name="Representative image (thumbnail)">
+<file>
+<url>FILE_OR_URL</url>
+<mimeType>TEXT</mimeType>
+<description>MEMO_TEXT</description>
+<origName>TEXT</origName>
+</file>
+</detail>
+<detail conceptID="3-1009" name="Additional (equivalent) names">TEXT</detail>
+<detail conceptID="3-1068" name="Place type" termID="VALUE"/>
+<detail conceptID="3-1037" name="Symbology colour" termID="VALUE"/>
+<detail conceptID="1125-101" name="Locational certainty" termID="VALUE"/>
+<detail conceptID="1125-129" name="Locality name">TEXT</detail>
+<detail conceptID="2-234" name="ADM1 / ADM2 (region, state, county)" termID="VALUE"/>
+<detail conceptID="2-551" name="Background colour" termID="VALUE"/>
+<detail conceptID="2-581" name="GeoNames ID">NUMERIC</detail>
+<detail conceptID="3-1090" name="Opacity">NUMERIC</detail>
+<detail conceptID="3-1091" name="Point object override symbol">
+<file>
+<url>FILE_OR_URL</url>
+<mimeType>TEXT</mimeType>
+<description>MEMO_TEXT</description>
+<origName>TEXT</origName>
+</file>
+</detail>
+<detail conceptID="3-1097" name="Locality name">TEXT</detail>
+<detail conceptID="1410-1186" name="Locality within place" isRecordPointer="true">RECORD_REFERENCE</detail>
+<detail conceptID="1410-1121" name="Source">TEXT</detail>
+</record>
+</records>
+</hml>
