@@ -14,6 +14,8 @@ The files are of four broad types:
 
 The XSLT file combine.xsl simply takes all the `heu_*_new.xml` files and produces a single file `heu_combined_new.xml` which can be imported. This is preferable in principle as it means that all internal keys and references will be automatically handled by Heurist. However, at present the resulting file is larger than the default 2MB limit for Heurist imports.
 
+**Please be aware that this is experimental and very much a work in progress.**
+
 ## Further reading
 
 - The DigiPal Project http://digipal.eu
